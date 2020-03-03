@@ -1,0 +1,6 @@
+framework module RtmpLibrary {
+  umbrella header "RtmpLibrary.h"
+
+  export *
+  module * { export * }
+}

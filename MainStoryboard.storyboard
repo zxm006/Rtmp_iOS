@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Ta-wi-s2Q">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="sBh-wv-sjr">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="3Ta-wi-s2Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q0j-Ec-2KP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dZj-ra-5UN" kind="relationship" relationship="rootViewController" id="3q3-Qj-WXU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJb-pH-iwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-584" y="241"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="9y0-hs-HbZ">
+            <objects>
+                <viewController id="dZj-ra-5UN" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TXy-FV-w7x"/>
+                        <viewControllerLayoutGuide type="bottom" id="x1u-c7-dtH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DSC-q4-zxF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEH-bh-BiB">
+                                <rect key="frame" x="72" y="543" width="62" height="30"/>
+                                <state key="normal" title="开始直播"/>
+                                <connections>
+                                    <action selector="btstartLive:" destination="dZj-ra-5UN" eventType="touchUpInside" id="l75-db-xDP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXk-r3-Olm">
+                                <rect key="frame" x="190" y="543" width="81" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="HUE-p5-NHB"/>
+                                </constraints>
+                                <state key="normal" title="观看直播"/>
+                                <connections>
+                                    <action selector="btstopLive:" destination="dZj-ra-5UN" eventType="touchUpInside" id="q0c-Vo-7xA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rtmp://192.168.113.185/liDve/teststream" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSK-mi-Hmd">
+                                <rect key="frame" x="76" y="514" width="275" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="xNH-pA-aBQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTq-zj-6zB">
+                                <rect key="frame" x="31" y="84" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="e3V-zF-cQe"/>
+                                    <constraint firstAttribute="height" constant="128" id="oFY-yd-x3e"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnY-SK-ypy">
+                                <rect key="frame" x="136" y="230" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="9en-Og-L8l"/>
+                                    <constraint firstAttribute="height" constant="30" id="Osb-5T-BRB"/>
+                                </constraints>
+                                <state key="normal" title="美颜"/>
+                                <connections>
+                                    <action selector="openBeautify:" destination="dZj-ra-5UN" eventType="touchUpInside" id="NzX-Vq-Q5a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrb-SK-jeu">
+                                <rect key="frame" x="193" y="230" width="88" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="jmo-HO-cqm"/>
+                                </constraints>
+                                <state key="normal" title="关闭美颜"/>
+                                <connections>
+                                    <action selector="closeBeautify:" destination="dZj-ra-5UN" eventType="touchUpInside" id="vAV-hD-1hL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dTq-zj-6zB" firstAttribute="top" secondItem="TXy-FV-w7x" secondAttribute="bottom" constant="64" id="4iX-WN-1j7"/>
+                            <constraint firstItem="xXk-r3-Olm" firstAttribute="baseline" secondItem="fEH-bh-BiB" secondAttribute="baseline" id="Lgv-lP-N9o"/>
+                            <constraint firstItem="dTq-zj-6zB" firstAttribute="leading" secondItem="DSC-q4-zxF" secondAttribute="leadingMargin" constant="15" id="PY3-Lr-LXz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SSK-mi-Hmd" secondAttribute="trailing" constant="8" id="XI1-xe-tde"/>
+                            <constraint firstItem="x1u-c7-dtH" firstAttribute="top" secondItem="SSK-mi-Hmd" secondAttribute="bottom" constant="123" id="b8d-4G-Bqo"/>
+                            <constraint firstItem="rrb-SK-jeu" firstAttribute="leading" secondItem="vnY-SK-ypy" secondAttribute="trailing" constant="11" id="f4h-FN-BiB"/>
+                            <constraint firstItem="vnY-SK-ypy" firstAttribute="leading" secondItem="DSC-q4-zxF" secondAttribute="leadingMargin" constant="120" id="ieh-KU-853"/>
+                            <constraint firstItem="x1u-c7-dtH" firstAttribute="top" secondItem="fEH-bh-BiB" secondAttribute="bottom" constant="94" id="oDT-cQ-rbH"/>
+                            <constraint firstItem="fEH-bh-BiB" firstAttribute="leading" secondItem="DSC-q4-zxF" secondAttribute="leadingMargin" constant="56" id="oVu-iI-YeR"/>
+                            <constraint firstItem="rrb-SK-jeu" firstAttribute="top" secondItem="vnY-SK-ypy" secondAttribute="top" id="pdr-8R-Q21"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rrb-SK-jeu" secondAttribute="trailing" constant="78" id="vLs-lj-rIV"/>
+                            <constraint firstItem="vnY-SK-ypy" firstAttribute="top" secondItem="dTq-zj-6zB" secondAttribute="bottom" constant="18" id="yWV-LV-ypM"/>
+                            <constraint firstItem="xXk-r3-Olm" firstAttribute="leading" secondItem="fEH-bh-BiB" secondAttribute="trailing" constant="56" id="zq2-l8-47O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5KE-pb-H7n"/>
+                    <connections>
+                        <outlet property="liveurl" destination="SSK-mi-Hmd" id="R2y-Vc-b2M"/>
+                        <outlet property="pwVideo" destination="dTq-zj-6zB" id="JCs-0w-6in"/>
+                        <outlet property="view" destination="DSC-q4-zxF" id="dnd-aL-V7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmn-Vr-dm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224.80000000000001" y="160.56971514242881"/>
+        </scene>
+    </scenes>
+</document>

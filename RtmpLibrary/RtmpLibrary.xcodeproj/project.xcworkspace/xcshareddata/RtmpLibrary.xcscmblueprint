@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "b5377909-0eb5-2b48-9248-9e1035200768++1637",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "b5377909-0eb5-2b48-9248-9e1035200768++1637" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "b5377909-0eb5-2b48-9248-9e1035200768++1637" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7F2323AF-3EC7-40BF-B115-09FF55BA55F9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "b5377909-0eb5-2b48-9248-9e1035200768++1637" : "%E6%B5%81%E5%AA%92%E4%BD%93-%E8%89%BE%E6%B8%B8%E7%BD%91\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RtmpLibrary",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS\/Rtmp_Client\/RtmpLibrary\/RtmpLibrary.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.113.190\/svn\/%E6%B8%B8%E6%88%8F%E4%BA%91",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "b5377909-0eb5-2b48-9248-9e1035200768++1637"
+    }
+  ]
+}

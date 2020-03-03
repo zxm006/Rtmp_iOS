@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5ABA1D247BD95C540956C3BC176D8C78F61BE252",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5ABA1D247BD95C540956C3BC176D8C78F61BE252" : 0,
+    "734095F675A53F30CC13CADBB7A0852CB29CA9B5" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0DE7CA02-CA55-4444-9AA6-C673A352ED89",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5ABA1D247BD95C540956C3BC176D8C78F61BE252" : "ios-librtmp%E7%BC%96%E8%AF%91\/",
+    "734095F675A53F30CC13CADBB7A0852CB29CA9B5" : "ios-librtmp%E7%BC%96%E8%AF%91\/rtmpdump\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "librtmp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "librtmp\/librtmp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/saiten\/ios-librtmp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5ABA1D247BD95C540956C3BC176D8C78F61BE252"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/saiten\/rtmpdump.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "734095F675A53F30CC13CADBB7A0852CB29CA9B5"
+    }
+  ]
+}
