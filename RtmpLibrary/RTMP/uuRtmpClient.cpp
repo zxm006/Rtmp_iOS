@@ -1,4 +1,4 @@
-﻿#include "uuRtmpClient.h"
+#include "uuRtmpClient.h"
 #include <unistd.h>
 #import <librtmp/rtmp.h>
 #include <librtmp/log.h>
@@ -256,37 +256,6 @@ HandleMetadata(RTMP *r, char *body, unsigned int len)
 {
     /* allright we get some info here, so parse it and print it */
     /* also keep duration or filesize to make a nice progress bar */
-    
-    
-//    // sps nums
-//    body[i++] = 0xE1; //&0x1f
-//    // sps data length
-//    body[i++] = lpMetaData->nSpsLen>>8;
-//    body[i++] = lpMetaData->nSpsLen&0xff;
-//    // sps data
-//    memcpy(&body[i],lpMetaData->Sps,lpMetaData->nSpsLen);
-//    i= i+lpMetaData->nSpsLen;
-//    
-//    // pps nums
-//    body[i++] = 0x01; //&0x1f
-//    // pps data length
-//    body[i++] = lpMetaData->nPpsLen>>8;
-//    body[i++] = lpMetaData->nPpsLen&0xff;
-//    // sps data
-//    memcpy(&body[i],lpMetaData->Pps,lpMetaData->nPpsLen);
-//    i= i+lpMetaData->nPpsLen;
-//    int i =0;
-//    char *pData = body;
-//    while(i<len)
-//    {
-//        if(pData[i++] == 0xE1 )
-//        {
-//        
-//        }
-//        else
-//        {
-//        }
-//    }
     AMFObject obj;
     AVal metastring;
     int ret = FALSE;

@@ -113,35 +113,23 @@
 
  - (void)  openBeautify
 {
-        [m_pVideoCamera removeAllTargets];
-    
+    [m_pVideoCamera removeAllTargets];
     GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
-    
-
     CGSize outputSize = {480, 640};
     GPUImageRawDataOutput *rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(outputSize.width, outputSize.height) resultsInBGRAFormat:YES];
     [beautifyFilter addTarget:rawDataOutput];
-    
     [self getOutput:rawDataOutput     outputSize:outputSize];
     [m_pVideoCamera addTarget:beautifyFilter];
-    
     [beautifyFilter addTarget:m_pFilterView];
-
-    
-    
 }
 
  - (void)  closeBeautify
 {
- 
     [m_pVideoCamera removeAllTargets];
-   
     CGSize outputSize = {480, 640};
     GPUImageRawDataOutput *rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(outputSize.width, outputSize.height) resultsInBGRAFormat:YES];
     [m_pVideoCamera addTarget:rawDataOutput];
-    
     [self getOutput:rawDataOutput     outputSize:outputSize];
-    
     [m_pVideoCamera addTarget:m_pFilterView];
  
 }

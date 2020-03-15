@@ -1,40 +1,23 @@
-//
-//  AudioDecodPlayback.cpp
-//  AudioLibrary
-//
-//  Created by wang guijun on 13-1-20.
-//  Copyright (c) 2013年 wang guijun. All rights reserved.
-//
-
 #include "AudioDecodPlayback.h"
-
 #include "AutoLock.h"
-
 
 extern uint32_t g_nTimeStamp;
 
 AudioDecodPlayback::AudioDecodPlayback()
 {
-  
     m_AudioPlay = nil ;
     audioDecode=new AudioDecodes;
     audioDecode->initAudioDecode( AAC_CODE);
-
-    
-     m_IsSetMute = false;
- 
+    m_IsSetMute = false;
 }
 
 AudioDecodPlayback::~AudioDecodPlayback()
 {
-   
     if(audioDecode)
     {
         delete audioDecode;
         audioDecode=NULL;
     }
- 
- 
     m_IsSetMute = false;
 }
 

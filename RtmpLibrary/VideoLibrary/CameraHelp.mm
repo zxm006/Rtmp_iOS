@@ -216,7 +216,6 @@ static CameraHelp* g_camera = nil;
 }
 
 -(void)setPreview:(void*)preview{
-//     mPreview = ( UIView*)preview;
     if(preview == nil)
     {
         [self stopPreview];
@@ -225,17 +224,12 @@ static CameraHelp* g_camera = nil;
     }
     else
     {
-//        [self stopPreview];
         mPreview = (UIView*)preview;
-//        [self startPreview];
     }
 }
 
-
-
 -(void)startVideoCapture 
 {
-    
      NSLog(@"startVideoCapture");
     //防锁
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
@@ -319,7 +313,6 @@ static CameraHelp* g_camera = nil;
         {
             [_mCaptureSession removeInput:_videoInput];
             self.videoInput =nil;
-            
         }
         if([_mCaptureSession isRunning])
         {
@@ -504,9 +497,6 @@ static  bool isinith264Encoder =NO;
     if (self.outDelegate ) {
             [self.outDelegate On_MediaReceiverCallbackVideo:(unsigned char*)[Bytedata bytes] nLen:[Bytedata length] bKeyFrame:isKeyFrame nWidth:_mWidth nHeight:_mHeight];
     }
-
-  
 }
-
 
 @end

@@ -174,25 +174,6 @@ double MachTimeToSecs(uint64_t time)
         _displayLink=nil;
     }
     
-//    NSTimeInterval period = 0.5; //设置时间间隔
-    
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    
-//    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-//    
-//    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
-//    
-//    dispatch_source_set_event_handler(_timer, ^{
-//        
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            
-//        //在这里执行事件
-//        [self writeVideoFrame];
-//        });
-//    });
-//    
-//    dispatch_resume(_timer);
-    
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(captureScreenshot)];
     _displayLink.frameInterval = 2;
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -374,8 +355,6 @@ double MachTimeToSecs(uint64_t time)
     else
     {
         [window snapshotViewAfterScreenUpdates:NO];
-        
-//        UIImage *snapshotImage = [window imageFromView:window];
     }
     
    UIGraphicsBeginImageContextWithOptions(capsize, YES,0);
@@ -392,17 +371,12 @@ double MachTimeToSecs(uint64_t time)
     
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-//    
-//    uint64_t end = mach_absolute_time();
-//    NSLog(@".bounds.size ==》%g s", MachTimeToSecs(end - begin));
-//    
     return screenshot;
 }
 
 
 - (void)captureScreenshot {
  
-    
     UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];
     if([keyWindow isKindOfClass:NSClassFromString(@"_UIAlertControllerShimPresenterWindow")])
     {
@@ -424,13 +398,9 @@ double MachTimeToSecs(uint64_t time)
                  CVPixelBufferRelease(image);
         });
               newImage= nil;
-      
-        
-//    [newImage release];
-      
     }
     else
-    {      //            uint64_t begin = mach_absolute_time();
+    {
         dispatch_sync(_render_queue, ^{
         UIImage *  keyWindowimage = [self capWindow:keyWindow];
         CVPixelBufferRef  image= [self pixelBufferFromCGImage:keyWindowimage.CGImage];
@@ -457,58 +427,6 @@ double MachTimeToSecs(uint64_t time)
         [self CapScreenOutput:image];
         CVPixelBufferRelease(image);
     });
-
-    
-//
-//      dispatch_sync(_render_queue, ^{
-//        
-//        if (!self.firstTimeStamp) {
-//            self.firstTimeStamp = _displayLink.timestamp;
-//        }
-//        
-//        CVPixelBufferRef pixelBuffer = NULL;
-//          CGContextRef bitmapContext =NULL;
-//          
-//  [self createPixelBufferAndBitmapContext:&pixelBuffer bitmapContext:&bitmapContext];
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            
-//            //            NSLog(@"scale= %.2f",[UIScreen mainScreen].scale);
-//            
-//            UIGraphicsPushContext(bitmapContext);
-//            {
-//                UIWindow * keywindow = [[UIApplication sharedApplication] keyWindow];
-//                
-//                if([keywindow isKindOfClass:NSClassFromString(@"_UIAlertControllerShimPresenterWindow")])
-//                {
-//                    NSArray *windows = [[UIApplication sharedApplication] windows];
-//                    
-//                    for (UIWindow *window  in windows)
-//                    {
-//                        [window drawViewHierarchyInRect:CGRectMake(0, 0, _viewSize.width, _viewSize.height) afterScreenUpdates:NO];
-//                        
-//                    }
-//                    
-//                }
-//                else
-//                {
-//                    [keywindow drawViewHierarchyInRect:CGRectMake(0, 0, _viewSize.width, _viewSize.height) afterScreenUpdates:NO];
-//                }
-//                
-//            }
-//            
-//            UIGraphicsPopContext();
-//            
-//        });
-//        
-//        [self CapScreenOutput:pixelBuffer];
-//        CVPixelBufferRelease(pixelBuffer);
-//          CGContextRelease(bitmapContext);
-//        
-//    });
-    //
-    //    uint64_t end = mach_absolute_time();
-    //    NSLog(@"截图时间==》%g s", MachTimeToSecs(end - begin));
 }
 
 - (void)writeVideoFrame
@@ -537,34 +455,13 @@ double MachTimeToSecs(uint64_t time)
 
 -(void)dealloc
 {
-    //    if (_append_pixelBuffer_queue) {
-    //            dispatch_release(_append_pixelBuffer_queue);
-    //        _append_pixelBuffer_queue=nil;
-    //    }
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
-    
-
-    
+ 
     if (_render_queue) {
         dispatch_release(_render_queue);
         _render_queue=nil;
     }
-    
-    //
-    //    if (_frameRenderingSemaphore) {
-    //        dispatch_release(_frameRenderingSemaphore);
-    //        _frameRenderingSemaphore=nil;
-    //    }
-    
-    //    if (_pixelAppendSemaphore) {
-    //        dispatch_release(_pixelAppendSemaphore);
-    //        _pixelAppendSemaphore=nil;
-    //    }
-    
     [super dealloc];
 }
-
-
 
 @end

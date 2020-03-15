@@ -67,26 +67,12 @@
 
 -(void)initOpenAL
 {
-//    
-//    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES]; //建议在播放之前设置yes，播放结束设置NO，这个功能是开启红外感应
-//    
-//    //添加监听
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(sensorStateChange:)
-//                                                 name:@"UIDeviceProximityStateDidChangeNotification"
-//                                               object:nil];
-
-    
-//    [self LoudSpeaker:0];
-   
     slock= [[NSLock alloc] init];
-    
 //        dispatch_async(dispatch_get_main_queue(), ^{
       [[AVAudioSession sharedInstance] setActive:YES error:nil];
      [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
 //          });
     
-
     mDevice=alcOpenDevice(NULL);
     if (mDevice) {
         mContext=alcCreateContext(mDevice, NULL);

@@ -154,22 +154,6 @@ CMSampleBufferRef sampleBuffer )
 //        // 开始编码
          status = VTCompressionSessionPrepareToEncodeFrames(EncodingSession);
         NSLog(@" VTCompressionSessionPrepareToEncodeFrames  return: %d", (int)status);
-        
-        
-//        // Set the properties
-//        VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
-//        VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_High_AutoLevel);
-//        
-//        VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_MaxKeyFrameInterval, (__bridge CFTypeRef)@(10));
-//
-//        status = VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)@(600 * 1024*4));
-//        
-//        status = VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_DataRateLimits, (__bridge CFArrayRef)@[[NSNumber numberWithInt:800 * 1024 / 8*4], @1]);
-//        
-//        VTSessionSetProperty(EncodingSession, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse);
-//        
-//        // Tell the encoder to start encoding
-//        VTCompressionSessionPrepareToEncodeFrames(EncodingSession);
     });
 }
 

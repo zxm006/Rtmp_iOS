@@ -3,16 +3,11 @@
 
 class RTMP;
 #include "CritSec.h"
-//#include "rtmp.h"
-//
 #include "Thread.h"
-
-
 #include <string.h>
 
 #define BOOL int
-//#define
-// NALU��Ԫ
+
 typedef struct _NaluUnit
 {
 	int type;
@@ -67,7 +62,7 @@ public:
 public:
     BOOL ConnectServer(const char* url, bool bIsPlay = false);
     void DisconnectServer();
-    virtual void ThreadProcMain(void);
+   
     BOOL SendH264VideoPacket(unsigned char *pData, unsigned int nSize, unsigned int nWidth, unsigned int nHeight, unsigned int nFrameRate, bool bIsKeyFrame, unsigned int nTimeStamp);
     BOOL SendH264AudioPacket(unsigned char *pData, unsigned int nSize, unsigned int nTimeStamp);
     bool ReadOneNaluFromBuf(NaluUnit &nalu);
@@ -75,6 +70,7 @@ public:
     BOOL SetPlayAndStop(bool bPaly);
     BOOL SetPlaySeek(int nTime);
 private:
+    virtual void ThreadProcMain(void);
     BOOL InitSockets();
     void CleanupSockets();
     int  SendPacket(unsigned int nPacketType,unsigned char *pData,long nSize,unsigned int nTimestamp);
@@ -83,6 +79,7 @@ private:
     BOOL SendHAudioMetadata(LPRTMPMetadata lpMetaData);
     BOOL GetNaluInfo(NaluUnit &nalu , unsigned int nSize, unsigned char *pData);
 private:
+
     RTMP* m_pRtmp;
     bool  m_isSendSpsInfo;
     KCritSec   m_mKCritSec;
@@ -94,10 +91,8 @@ private:
     char m_sps[1024];
     int m_ppslen;
     char m_pps[1024];
-    
     int m_spsPpslen;
     char m_spsPps[1024];
-    
     CRtmpPlayCall* m_pRtmpPlayCall;
 };
 

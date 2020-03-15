@@ -1,0 +1,27 @@
+# Prerequisites
+# Object files
+packages/
+# Linker output
+# Precomiled Headers
+# Libraries
+# Shared objects (inc. Windows DLLs)
+libs/
+obj/
+build-xcode
+# Debug files
+build
+build-*/
+cmake-build-*
+pack/linux/ipk/
+tags
+.vs
+.vscode
+.idea
+*.DS_store
+project.xcworkspace
+project.xcworkspace/
+*.xcuserstate
+UserInterface.xcuserstate
+ipk/Debug
+ipk/release
+xcuserdata/

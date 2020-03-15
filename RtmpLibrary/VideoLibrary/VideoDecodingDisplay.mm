@@ -32,8 +32,7 @@ VideoDecodingDisplay::VideoDecodingDisplay()
 ,m_bThreadEnd(true)
 ,m_bPalyVideo(true)
 {
-    
-    m_VideoData_List.clear();
+     m_VideoData_List.clear();
     m_bWantToStop = true;
     m_liveFFmpegdecode = [[liveFFmpegdecode alloc] init];
 //    m_nBegintime = 0;
@@ -42,14 +41,11 @@ VideoDecodingDisplay::VideoDecodingDisplay()
 
 VideoDecodingDisplay::~VideoDecodingDisplay()
 {
-    
     if(m_bWantToStop == false)
     {
-        
         m_bWantToStop = true ;
         
         //  KAutoLock lock(m_mKCritSec);
-        
         VIDEODDATA_LIST::iterator iter = m_VideoData_List.begin();
         while (iter!=m_VideoData_List.end()) {
             free((*iter)->GetBuffer());
@@ -60,14 +56,11 @@ VideoDecodingDisplay::~VideoDecodingDisplay()
         
         WaitForStop();
     }
-    
-    
     m_liveFFmpegdecode = nil;
 }
 
 bool VideoDecodingDisplay::Start()
 {
-    
     if(m_liveFFmpegdecode == nil)
         return false;
     m_icount = 0;
@@ -76,11 +69,8 @@ bool VideoDecodingDisplay::Start()
     m_nTimeStruct.nCurrentTime = 0;
     m_nTimeStruct.nPlayTimeStamp = 0;
     m_VideoData_List.clear();
-    
     [m_liveFFmpegdecode Beginmpeg_decode_h264];
-    
     StartThread();
-    
     return true;
 }
 
@@ -89,7 +79,6 @@ void VideoDecodingDisplay::Stop()
     //
     g_nTimeStamp = 0;
     m_bWantToStop = true;
-    
     usleep(10000);
     if(m_liveFFmpegdecode == nil)
         return ;
@@ -103,13 +92,8 @@ void VideoDecodingDisplay::Stop()
         iter++;
     }
     m_VideoData_List.clear();
-    
-    
     [m_liveFFmpegdecode Endinmpeg_decode_h264];
-    
     WaitForStop();
-    
-    
 }
 
 bool VideoDecodingDisplay::StartDisplayVideo()
@@ -172,9 +156,7 @@ bool VideoDecodingDisplay::AddVideoData(unsigned char*pData,int nLen, uint32_t n
     if(m_bWantToStop)
     {
         return true;
-        
     }
-    //    [m_liveFFmpegdecode ffmpeg_decode_h264:(unsigned char *)pData Len:(int)nLen iCount:1];
     
     char* pVideoPacketBeffer=(char*)malloc(nLen);
     memset(pVideoPacketBeffer, 0, nLen);
@@ -186,10 +168,8 @@ bool VideoDecodingDisplay::AddVideoData(unsigned char*pData,int nLen, uint32_t n
     pKBuffer->SetTimeStamp(nTimeStamp);
     
     KAutoLock lock(m_mKCritSec);
-    
     m_VideoData_List.push_back(pKBuffer);
     //
-    
     return true;
 }
 
@@ -207,10 +187,6 @@ bool VideoDecodingDisplay::SetPlayAndStop(bool bPaly)
 void VideoDecodingDisplay::ThreadProcMain(void)
 {
     m_bThreadEnd = false;
-//    m_nBegintime =(uint32_t)XGetTimestampDIS();
-    
-    sleep(1);
-    
     while(!m_bWantToStop)
     {
         bool bGetVdata = false;
@@ -231,12 +207,9 @@ void VideoDecodingDisplay::ThreadProcMain(void)
         {
             char* pBuffer = pRecvBuffer->GetBuffer();
             unsigned long uiLen = pRecvBuffer->GetLen();
-//            NSLog(@"XGetTimestampDIS() = %ld",XGetTimestampDIS());
-            
             [m_liveFFmpegdecode ffmpeg_decode_h264:(unsigned char *)pBuffer Len:(int)uiLen iCount:1];
             free(pBuffer);
             delete pRecvBuffer;
-//            uint32_t     ticktime =XGetTimestampDIS() - m_nBegintime;
             
             size_t isize = m_VideoData_List.size();
         
@@ -263,11 +236,8 @@ void VideoDecodingDisplay::ThreadProcMain(void)
       }
         else
         {
-//            NSLog(@"暂时无数据");
             usleep(500);
         }
-        
-        
     }
     m_bThreadEnd = true;
 }
